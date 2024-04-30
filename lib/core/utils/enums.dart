@@ -1,0 +1,4 @@
+enum Enum {
+  FIRST,
+  SECOND,
+}
