@@ -20,8 +20,13 @@ class AppAssets {
   static const String directionsPng = "${imagePath}directions.png";
   static const String reportPng = "${imagePath}report.png";
   static const String sharePng = "${imagePath}share.png";
+  static const String bgPng = "${imagePath}bg.png";
+  static const String addPng = "${imagePath}add.png";
+  static const String sortPng = "${imagePath}sort.png";
 
   /// SvgImages
   static const String backSvg = "${svgImagePath}back.svg";
+  static const String calenderSvg = "${svgImagePath}calendar.svg";
+  static const String listCheckSvg = "${svgImagePath}list_check.svg";
 
 }

@@ -68,7 +68,7 @@ class CategoryDetailsScreen extends StatelessWidget {
                     textStyle:
                         textTheme(context).titleMedium?.copyWith(height: 1.5, color: ThemeColorLight.secondaryColor, fontWeight: AppFonts.medium),
                   ),
-                  const Icon(Icons.keyboard_arrow_down, color: ThemeColorLight.secondaryColor)
+                  Icon(Icons.keyboard_arrow_down, color: ThemeColorLight.secondaryColor)
                 ],
               ),
               Gap(AppSizes.pH7),

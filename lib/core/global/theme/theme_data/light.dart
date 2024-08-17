@@ -129,9 +129,9 @@ ThemeData get getThemeDataLight => ThemeData(
 
 getTextTheme() => TextTheme(
     titleLarge: TextStyle(
-        color: ThemeColorLight.primaryColor, fontSize: AppSizes.h4, fontWeight: AppFonts.medium, fontFamily: AppFonts.getAppFont, height: 1.03),
+        color: ThemeColorLight.primaryColor, fontSize: AppSizes.h3, fontWeight: AppFonts.normal, fontFamily: AppFonts.getAppFont, height: 1.03),
     titleMedium: TextStyle(
-        color: ThemeColorLight.primaryColor, fontSize: AppSizes.h5, fontWeight: AppFonts.regular, fontFamily: AppFonts.getAppFont, height: 1.03),
+        color: ThemeColorLight.secondaryColor, fontSize: AppSizes.h5, fontWeight: AppFonts.normal, fontFamily: AppFonts.getAppFont, height: 1.03),
     titleSmall: TextStyle(
         color: ThemeColorLight.primaryColor, fontSize: AppSizes.h8, fontWeight: AppFonts.regular, fontFamily: AppFonts.getAppFont, height: 1.03),
     headlineLarge: TextStyle(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ThemeColorLight {
-  static const Color primaryColor = Color(0xFF010247);
-  static const Color secondaryColor = Color(0xFF9D00DE);
+  static const Color primaryColor = Color(0xFFFFFFFF);
+  static Color secondaryColor = const Color(0xFFFFFFFF).withOpacity(0.5);
   static const Color tertiaryColor = Color(0xFFFBF1FF);
 
   static const Color headlineTextColor = Color(0xFF333333);

@@ -8,9 +8,9 @@ class AppSizes {
   static double widthFullScreen = Get.width;
 
   /// Font Size
-  static double get h1 => isTablet() ? 36.sp : 40.0.sp;
+  static double get h1 => isTablet() ? 32.sp : 32.0.sp;
   static double get h2 => isTablet() ? 30.sp : 28.0.sp;
-  static double get h3 => isTablet() ? 20.sp : 24.0.sp;
+  static double get h3 => isTablet() ? 20.sp : 20.0.sp;
   static double get h4 => isTablet() ? 14.sp : 18.0.sp;
   static double get h5 => isTablet() ? 10.sp : 16.0.sp;
   static double get h6 => isTablet() ? 10.sp : 14.0.sp;

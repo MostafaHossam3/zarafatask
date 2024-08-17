@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
       child: ScreenUtilInit(
-        designSize: const Size(390, 891),
+        designSize: const Size(393, 891),
         minTextAdapt: false,
         builder: (_, __) => GetMaterialApp(
           title: 'Z-Task',
