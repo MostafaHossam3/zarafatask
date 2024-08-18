@@ -32,19 +32,24 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       child: Consumer<SplashScreenProvider>(
         builder: (context, provider, child) => Scaffold(
             extendBody: true,
+            backgroundColor: Colors.black,
             body: Center(
-                child: Lottie.asset(
-              AppAssets.splashImage,
-              frameRate: FrameRate.max,
-              height: AppSizes.splashIconSize,
-              width: AppSizes.splashIconSize,
-              onLoaded: (composition) {
-                _controller
-                  ..duration = composition.duration
-                  ..forward().whenComplete(() => provider.finishAnim());
-              },
-              repeat: false,
-            ))),
+                child: ColorFiltered(
+                  colorFilter:
+                  ColorFilter.mode(Colors.white70, BlendMode.srcATop),
+                  child: Lottie.asset(
+                                AppAssets.splashImage,
+                                frameRate: FrameRate.max,
+                                height: AppSizes.splashIconSize,
+                                width: AppSizes.splashIconSize,
+                                onLoaded: (composition) {
+                  _controller
+                    ..duration = composition.duration
+                    ..forward().whenComplete(() => provider.finishAnim());
+                                },
+                                repeat: false,
+                              ),
+                ))),
       ),
     );
   }

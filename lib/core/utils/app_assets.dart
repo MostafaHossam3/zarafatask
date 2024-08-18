@@ -8,7 +8,7 @@ class AppAssets {
   // static const String vrSound = "${soundPath}vr_sound.mp3";
 
   /// Json Images
-  static const String splashImage = "${jsonPath}splash.json";
+  static const String splashImage = "${jsonPath}notepad.json";
 
   /// Images Assets
   static const String bgImage = "${imagePath}backGround.jpg";
