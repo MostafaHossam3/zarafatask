@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:ztask/core/utils/app_assets.dart';
@@ -15,6 +16,7 @@ import 'package:ztask/core/widgets/custom_switch_widget.dart';
 import 'package:ztask/core/widgets/custom_text.dart';
 import 'package:ztask/core/widgets/images/custom_png_image.dart';
 import 'package:ztask/core/widgets/images/custom_svg_image.dart';
+import 'package:ztask/core/widgets/loading_indicators.dart';
 import 'package:ztask/features/home/presentation/components/banner_component.dart';
 import 'package:ztask/features/home/presentation/controllers/home_screen_provider.dart';
 import 'package:ztask/features/home/presentation/utils/utils.dart';
@@ -82,7 +84,7 @@ class HomeScreen extends StatelessWidget {
                         selectedDecoration: const BoxDecoration(),
                         todayDecoration: const BoxDecoration(),
                       ),
-                      rowHeight: 102.h,
+                      rowHeight: 95.h,
                       daysOfWeekStyle: DaysOfWeekStyle(
                           weekdayStyle: Theme.of(context).textTheme.titleMedium!, weekendStyle: Theme.of(context).textTheme.titleMedium!),
                     ),
@@ -118,58 +120,66 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                           Gap(AppSizes.pH8),
-                          ListView(
-                            shrinkWrap: true,
-                            padding: EdgeInsets.zero,
-                            physics: const NeverScrollableScrollPhysics(),
-                            children: [
-                              BannerComponent(
-                                image: AppAssets.imageBanner2,
-                                subtitle: 'Trip to Rome',
-                                title: 'Discuss a trip',
-                                tag: 'Work',
-                                date: '10:00 - 10:20 AM',
-                                participantsImages: [
-                                  'https://i.pinimg.com/280x280_RS/1d/09/06/1d09066657ccd96be988027e12df4fd6.jpg',
-                                  'https://img.freepik.com/premium-photo/girl-model-hd-images-free-download-with-wallpaper-product-model-girl-ads-girl-model_88650-3043.jpg',
-                                  'https://static.vecteezy.com/system/resources/previews/029/640/165/large_2x/beautiful-indian-female-model-in-formal-cloth-generative-ai-photo.jpeg',
-                                ],
-                              ),
-                              BannerComponent(
-                                image: AppAssets.imageBanner3,
-                                subtitle: 'Trip to Rome',
-                                title: 'Discuss a trip with Tom',
-                                tag: 'High',
-                                date: '11:00 - 12:30 AM',
-                                participantsImages: [
-                                  'https://lh3.googleusercontent.com/-Cm435RMAH4I/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkl4p0UyVAJCxPmmkljq_55bpjvY7w/photo.jpg?sz=46'
-                                ],
-                              ),
-                              BannerComponent(
-                                image: AppAssets.imageBanner4,
-                                subtitle: 'Evening routine',
-                                title: 'Lunch in café',
-                                tag: 'Life',
-                                date: '13:00 - 14:30 PM',
-                                participantsImages: [
-                                  'https://www.papodecinema.com.br/wp-content/uploads/2019/12/20201229-jude-law-papo-de-cinema-e1609257686154.jpg',
-                                  'https://i.pinimg.com/280x280_RS/1d/09/06/1d09066657ccd96be988027e12df4fd6.jpg',
-                                ],
-                              ),
-                              BannerComponent(
-                                image: AppAssets.imageBanner1,
-                                subtitle: 'Evening routine',
-                                title: 'Lunch in café',
-                                tag: 'Life',
-                                date: '10:00 - 10:20 AM',
-                                participantsImages: [
-                                  'https://i.pinimg.com/280x280_RS/1d/09/06/1d09066657ccd96be988027e12df4fd6.jpg',
-                                  'https://img.freepik.com/premium-photo/girl-model-hd-images-free-download-with-wallpaper-product-model-girl-ads-girl-model_88650-3043.jpg',
-                                  'https://static.vecteezy.com/system/resources/previews/029/640/165/large_2x/beautiful-indian-female-model-in-formal-cloth-generative-ai-photo.jpeg',
-                                ],
-                              ),
-                              Gap(100.h)
-                            ],
+                          AnimatedOpacity(
+                            duration: Duration(milliseconds: 300),
+                            opacity: provider.isLoading ? 0 : 1,
+                            child: ListView(
+                              shrinkWrap: true,
+                              padding: EdgeInsets.zero,
+                              physics: const NeverScrollableScrollPhysics(),
+                              children: [
+                                BannerComponent(
+                                  duration: Duration(milliseconds: 300),
+                                  image: AppAssets.imageBanner2,
+                                  subtitle: 'Trip to Rome',
+                                  title: 'Discuss a trip',
+                                  tag: 'Work',
+                                  date: '10:00 - 10:20 AM',
+                                  participantsImages: [
+                                    'https://i.pinimg.com/280x280_RS/1d/09/06/1d09066657ccd96be988027e12df4fd6.jpg',
+                                    'https://img.freepik.com/premium-photo/girl-model-hd-images-free-download-with-wallpaper-product-model-girl-ads-girl-model_88650-3043.jpg',
+                                    'https://static.vecteezy.com/system/resources/previews/029/640/165/large_2x/beautiful-indian-female-model-in-formal-cloth-generative-ai-photo.jpeg',
+                                  ],
+                                ),
+                                BannerComponent(
+                                  duration: Duration(milliseconds: 600),
+                                  image: AppAssets.imageBanner3,
+                                  subtitle: 'Trip to Rome',
+                                  title: 'Discuss a trip with Tom',
+                                  tag: 'High',
+                                  date: '11:00 - 12:30 AM',
+                                  participantsImages: [
+                                    'https://lh3.googleusercontent.com/-Cm435RMAH4I/AAAAAAAAAAI/AAAAAAAAAAA/ALKGfkl4p0UyVAJCxPmmkljq_55bpjvY7w/photo.jpg?sz=46'
+                                  ],
+                                ),
+                                BannerComponent(
+                                  duration: Duration(milliseconds: 900),
+                                  image: AppAssets.imageBanner4,
+                                  subtitle: 'Evening routine',
+                                  title: 'Lunch in café',
+                                  tag: 'Life',
+                                  date: '13:00 - 14:30 PM',
+                                  participantsImages: [
+                                    'https://www.papodecinema.com.br/wp-content/uploads/2019/12/20201229-jude-law-papo-de-cinema-e1609257686154.jpg',
+                                    'https://i.pinimg.com/280x280_RS/1d/09/06/1d09066657ccd96be988027e12df4fd6.jpg',
+                                  ],
+                                ),
+                                BannerComponent(
+                                  duration: Duration(milliseconds: 1200),
+                                  image: AppAssets.imageBanner1,
+                                  subtitle: 'Evening routine',
+                                  title: 'Lunch in café',
+                                  tag: 'Life',
+                                  date: '10:00 - 10:20 AM',
+                                  participantsImages: [
+                                    'https://i.pinimg.com/280x280_RS/1d/09/06/1d09066657ccd96be988027e12df4fd6.jpg',
+                                    'https://img.freepik.com/premium-photo/girl-model-hd-images-free-download-with-wallpaper-product-model-girl-ads-girl-model_88650-3043.jpg',
+                                    'https://static.vecteezy.com/system/resources/previews/029/640/165/large_2x/beautiful-indian-female-model-in-formal-cloth-generative-ai-photo.jpeg',
+                                  ],
+                                ),
+                                Gap(80.h)
+                              ],
+                            ),
                           )
                         ],
                       ),
@@ -241,7 +251,9 @@ class HomeScreen extends StatelessWidget {
                 //   path: AppAssets.bImage,
                 //   width: AppSizes.widthFullScreen,
                 // )
-              )
+              ),
+              if (provider.isLoading)
+                Center(child: CustomLoadingIndicators.iOSLoadingIndicator()),
             ],
           ),
         ),

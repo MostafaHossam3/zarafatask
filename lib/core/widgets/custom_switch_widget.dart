@@ -25,6 +25,7 @@ class _CustomSwitchWidgetState extends State<CustomSwitchWidget> {
 
   @override
   Widget build(BuildContext context) {
+    double width = 2* (60.h);
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () {
@@ -32,7 +33,7 @@ class _CustomSwitchWidgetState extends State<CustomSwitchWidget> {
         widget.onChange.call(isEnabled);
       },
       child: Container(
-        width: 90.w,
+        width: width,
         height: 60.h,
         decoration: BoxDecoration(border: Border.all(color: Colors.white.withOpacity(0.2)), borderRadius: BorderRadius.circular(AppSizes.brMax)),
         // alignment: AlignmentDirectional.centerStart,
@@ -48,31 +49,27 @@ class _CustomSwitchWidgetState extends State<CustomSwitchWidget> {
                 decoration: BoxDecoration(color: Colors.white.withOpacity(0.2), borderRadius: BorderRadius.circular(AppSizes.brMax)),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  height: 40.w,
-                  width: 40.w,
-                  padding: EdgeInsetsDirectional.only(start: 4.w),
-                  alignment: AlignmentDirectional.center,
-                  child: CustomSvgImage(
-                    path: AppAssets.calenderSvg,
-                    color: isEnabled ? Colors.white : Colors.white70,
-                  ),
-                ),
-                Container(
-                  width: 40.w,
-                  height: 40.w,
-                  alignment: AlignmentDirectional.center,
-                  child: CustomSvgImage(
-                    path: AppAssets.listCheckSvg,
-                    color: !isEnabled ? Colors.white : Colors.white70,
-                    height: AppSizes.icon25,
-                  ),
-                ),
-              ],
-            )
+            Container(
+              height: 60.h,
+              width: width,
+              padding: EdgeInsetsDirectional.only(end: 15.h),
+              alignment: AlignmentDirectional.centerEnd,
+              child: CustomSvgImage(
+                path: AppAssets.calenderSvg,
+                color: isEnabled ? Colors.white : Colors.white70,
+              ),
+            ),
+            Container(
+              height: 60.h,
+              width: width,
+              alignment: AlignmentDirectional.centerStart,
+              padding: EdgeInsetsDirectional.only(start: 15.h),
+              child: CustomSvgImage(
+                path: AppAssets.listCheckSvg,
+                color: !isEnabled ? Colors.white : Colors.white70,
+                height: AppSizes.icon25,
+              ),
+            ),
           ],
         ),
       ),
